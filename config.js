@@ -1,12 +1,4 @@
 const mongoose=require('mongoose')
-const connect=mongoose.connect("mongodb+srv://gulerian282:<nikhilmongo>@cluster0.veda7mu.mongodb.net/login");
-//data base checking
-connect.then(() => {
-    console.log('DataBase connected sucessfully');
-})
-.catch(() => {
-    console.log('DataBase not connected thukab ho gya ha');
-})
 
 const Schema=mongoose.Schema
 const userSchema=new Schema({

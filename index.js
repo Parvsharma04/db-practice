@@ -2,6 +2,14 @@ const express = require('express')
 const app = express();
 const port= 5500;   
 const User=require('./config');
+const mongoose = require('mongoose')
+
+mongoose.connect('mongodb+srv://gulerian282:nikhilmongo@cluster0.veda7mu.mongodb.net/login').then(res=>{
+    console.log("DataBase connected sucessfully'")
+}).catch(err=>{
+    console.log('thukaab of DATABASE')
+})
+
 
 //convert data into json format
 app.use(express.json());
@@ -23,7 +31,7 @@ app.post("/signup", async (req , res) => {
      name: req.body.username,
      password:req.body.password
    }
-   const userdata=await User.insertMany(data);
+   await User.create(data);
    console.log("userdata");
 })
 
